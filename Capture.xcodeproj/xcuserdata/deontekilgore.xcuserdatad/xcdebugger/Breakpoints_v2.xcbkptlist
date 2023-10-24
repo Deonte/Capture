@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Bucket
+   uuid = "8EA1E662-B162-48DD-ABCC-26E962CB47DC"
+   type = "1"
+   version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "32CAC63D-24CB-4740-A118-D17AA4DC1E4B"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Capture/ViewModels/CameraViewModel.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "91"
+            endingLineNumber = "91"
+            landmarkName = "photoOutput(_:didFinishProcessingPhoto:error:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "5CD0FB82-5CB9-4E60-8273-DA9025BC9C22"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Capture/ViewModels/CameraViewModel.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "62"
+            endingLineNumber = "62"
+            landmarkName = "setup()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "5CD0FB82-5CB9-4E60-8273-DA9025BC9C22 - ec25bf97019f2778"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Capture.CameraViewModel.setup() -&gt; ()"
+                  moduleName = "Capture"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/deontekilgore/Desktop/100%20Swift%20Projects/Capture/Capture/ViewModels/CameraViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "61"
+                  endingLineNumber = "61"
+                  offsetFromSymbolStart = "648">
+               </Location>
+               <Location
+                  uuid = "5CD0FB82-5CB9-4E60-8273-DA9025BC9C22 - ec25bf97019f2778"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Capture.CameraViewModel.setup() -&gt; ()"
+                  moduleName = "Capture"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/deontekilgore/Desktop/100%20Swift%20Projects/Capture/Capture/ViewModels/CameraViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "61"
+                  endingLineNumber = "61"
+                  offsetFromSymbolStart = "688">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "46B5A4D2-9817-4EF0-A7E5-EFC34CA6C9E2"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Capture/ViewModels/CameraViewModel.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "74"
+            endingLineNumber = "74"
+            landmarkName = "takePhoto()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
+</Bucket>

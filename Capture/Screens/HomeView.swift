@@ -6,16 +6,10 @@
 //
 
 import SwiftUI
-
+import AVFoundation
 struct HomeView: View {
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
-        }
-        .padding()
+        CameraView()
     }
 }
 

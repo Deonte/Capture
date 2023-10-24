@@ -11,6 +11,8 @@
 		FD9AAE402AE675A500A8A4F2 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD9AAE3F2AE675A500A8A4F2 /* HomeView.swift */; };
 		FD9AAE422AE675A600A8A4F2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FD9AAE412AE675A600A8A4F2 /* Assets.xcassets */; };
 		FD9AAE462AE675A600A8A4F2 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FD9AAE452AE675A600A8A4F2 /* Preview Assets.xcassets */; };
+		FD9AAE522AE683C500A8A4F2 /* CameraView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD9AAE512AE683C500A8A4F2 /* CameraView.swift */; };
+		FD9AAE542AE689CD00A8A4F2 /* CameraViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD9AAE532AE689CD00A8A4F2 /* CameraViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -20,6 +22,9 @@
 		FD9AAE412AE675A600A8A4F2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FD9AAE432AE675A600A8A4F2 /* Capture.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Capture.entitlements; sourceTree = "<group>"; };
 		FD9AAE452AE675A600A8A4F2 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		FD9AAE512AE683C500A8A4F2 /* CameraView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraView.swift; sourceTree = "<group>"; };
+		FD9AAE532AE689CD00A8A4F2 /* CameraViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraViewModel.swift; sourceTree = "<group>"; };
+		FD9AAE552AE690BA00A8A4F2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -52,6 +57,7 @@
 		FD9AAE3C2AE675A500A8A4F2 /* Capture */ = {
 			isa = PBXGroup;
 			children = (
+				FD9AAE552AE690BA00A8A4F2 /* Info.plist */,
 				FD9AAE4C2AE675D500A8A4F2 /* App */,
 				FD9AAE4E2AE6762700A8A4F2 /* Models */,
 				FD9AAE4D2AE6761B00A8A4F2 /* Screens */,
@@ -83,6 +89,7 @@
 			isa = PBXGroup;
 			children = (
 				FD9AAE3F2AE675A500A8A4F2 /* HomeView.swift */,
+				FD9AAE512AE683C500A8A4F2 /* CameraView.swift */,
 			);
 			path = Screens;
 			sourceTree = "<group>";
@@ -97,6 +104,7 @@
 		FD9AAE4F2AE678B400A8A4F2 /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
+				FD9AAE532AE689CD00A8A4F2 /* CameraViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -171,6 +179,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FD9AAE522AE683C500A8A4F2 /* CameraView.swift in Sources */,
+				FD9AAE542AE689CD00A8A4F2 /* CameraViewModel.swift in Sources */,
 				FD9AAE402AE675A500A8A4F2 /* HomeView.swift in Sources */,
 				FD9AAE3E2AE675A500A8A4F2 /* CaptureApp.swift in Sources */,
 			);
@@ -306,8 +316,11 @@
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Capture/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = Capture;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.photography";
+				INFOPLIST_KEY_NSCameraUsageDescription = "Capture requires access to your device's camera to allow you to capture photos directly within the app. This access is essential for providing you with a seamless and intuitive photography experience. We do not store or share your media without your explicit consent.";
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "";
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
@@ -317,7 +330,6 @@
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphoneos*]" = UIStatusBarStyleDefault;
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
@@ -330,7 +342,7 @@
 				SUPPORTS_MACCATALYST = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -347,8 +359,11 @@
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Capture/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = Capture;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.photography";
+				INFOPLIST_KEY_NSCameraUsageDescription = "Capture requires access to your device's camera to allow you to capture photos directly within the app. This access is essential for providing you with a seamless and intuitive photography experience. We do not store or share your media without your explicit consent.";
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "";
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
@@ -358,7 +373,6 @@
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphoneos*]" = UIStatusBarStyleDefault;
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
@@ -371,7 +385,7 @@
 				SUPPORTS_MACCATALYST = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
