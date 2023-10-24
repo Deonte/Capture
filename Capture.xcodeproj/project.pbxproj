@@ -8,23 +8,25 @@
 
 /* Begin PBXBuildFile section */
 		FD9AAE3E2AE675A500A8A4F2 /* CaptureApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD9AAE3D2AE675A500A8A4F2 /* CaptureApp.swift */; };
-		FD9AAE402AE675A500A8A4F2 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD9AAE3F2AE675A500A8A4F2 /* HomeView.swift */; };
+		FD9AAE402AE675A500A8A4F2 /* CaptureSelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD9AAE3F2AE675A500A8A4F2 /* CaptureSelectionView.swift */; };
 		FD9AAE422AE675A600A8A4F2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FD9AAE412AE675A600A8A4F2 /* Assets.xcassets */; };
 		FD9AAE462AE675A600A8A4F2 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FD9AAE452AE675A600A8A4F2 /* Preview Assets.xcassets */; };
-		FD9AAE522AE683C500A8A4F2 /* CameraView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD9AAE512AE683C500A8A4F2 /* CameraView.swift */; };
-		FD9AAE542AE689CD00A8A4F2 /* CameraViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD9AAE532AE689CD00A8A4F2 /* CameraViewModel.swift */; };
+		FD9AAE572AE7D9F000A8A4F2 /* Camera.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD9AAE562AE7D9F000A8A4F2 /* Camera.swift */; };
+		FD9AAE592AE7DFFD00A8A4F2 /* PreviewCameraView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD9AAE582AE7DFFD00A8A4F2 /* PreviewCameraView.swift */; };
+		FD9AAE5B2AE7E29000A8A4F2 /* CustomCameraView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD9AAE5A2AE7E29000A8A4F2 /* CustomCameraView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		FD9AAE3A2AE675A500A8A4F2 /* Capture.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Capture.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FD9AAE3D2AE675A500A8A4F2 /* CaptureApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaptureApp.swift; sourceTree = "<group>"; };
-		FD9AAE3F2AE675A500A8A4F2 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		FD9AAE3F2AE675A500A8A4F2 /* CaptureSelectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaptureSelectionView.swift; sourceTree = "<group>"; };
 		FD9AAE412AE675A600A8A4F2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FD9AAE432AE675A600A8A4F2 /* Capture.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Capture.entitlements; sourceTree = "<group>"; };
 		FD9AAE452AE675A600A8A4F2 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		FD9AAE512AE683C500A8A4F2 /* CameraView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraView.swift; sourceTree = "<group>"; };
-		FD9AAE532AE689CD00A8A4F2 /* CameraViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraViewModel.swift; sourceTree = "<group>"; };
 		FD9AAE552AE690BA00A8A4F2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		FD9AAE562AE7D9F000A8A4F2 /* Camera.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Camera.swift; sourceTree = "<group>"; };
+		FD9AAE582AE7DFFD00A8A4F2 /* PreviewCameraView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewCameraView.swift; sourceTree = "<group>"; };
+		FD9AAE5A2AE7E29000A8A4F2 /* CustomCameraView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCameraView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -88,8 +90,9 @@
 		FD9AAE4D2AE6761B00A8A4F2 /* Screens */ = {
 			isa = PBXGroup;
 			children = (
-				FD9AAE3F2AE675A500A8A4F2 /* HomeView.swift */,
-				FD9AAE512AE683C500A8A4F2 /* CameraView.swift */,
+				FD9AAE3F2AE675A500A8A4F2 /* CaptureSelectionView.swift */,
+				FD9AAE582AE7DFFD00A8A4F2 /* PreviewCameraView.swift */,
+				FD9AAE5A2AE7E29000A8A4F2 /* CustomCameraView.swift */,
 			);
 			path = Screens;
 			sourceTree = "<group>";
@@ -104,7 +107,7 @@
 		FD9AAE4F2AE678B400A8A4F2 /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
-				FD9AAE532AE689CD00A8A4F2 /* CameraViewModel.swift */,
+				FD9AAE562AE7D9F000A8A4F2 /* Camera.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -179,10 +182,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FD9AAE522AE683C500A8A4F2 /* CameraView.swift in Sources */,
-				FD9AAE542AE689CD00A8A4F2 /* CameraViewModel.swift in Sources */,
-				FD9AAE402AE675A500A8A4F2 /* HomeView.swift in Sources */,
+				FD9AAE572AE7D9F000A8A4F2 /* Camera.swift in Sources */,
+				FD9AAE402AE675A500A8A4F2 /* CaptureSelectionView.swift in Sources */,
+				FD9AAE592AE7DFFD00A8A4F2 /* PreviewCameraView.swift in Sources */,
 				FD9AAE3E2AE675A500A8A4F2 /* CaptureApp.swift in Sources */,
+				FD9AAE5B2AE7E29000A8A4F2 /* CustomCameraView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -320,7 +324,7 @@
 				INFOPLIST_KEY_CFBundleDisplayName = Capture;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.photography";
 				INFOPLIST_KEY_NSCameraUsageDescription = "Capture requires access to your device's camera to allow you to capture photos directly within the app. This access is essential for providing you with a seamless and intuitive photography experience. We do not store or share your media without your explicit consent.";
-				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "";
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "Capture requires access to your photo library to save the photos to your device.";
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
@@ -363,7 +367,7 @@
 				INFOPLIST_KEY_CFBundleDisplayName = Capture;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.photography";
 				INFOPLIST_KEY_NSCameraUsageDescription = "Capture requires access to your device's camera to allow you to capture photos directly within the app. This access is essential for providing you with a seamless and intuitive photography experience. We do not store or share your media without your explicit consent.";
-				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "";
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "Capture requires access to your photo library to save the photos to your device.";
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
