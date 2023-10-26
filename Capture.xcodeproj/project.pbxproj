@@ -324,7 +324,7 @@
 				INFOPLIST_KEY_CFBundleDisplayName = Capture;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.photography";
 				INFOPLIST_KEY_NSCameraUsageDescription = "Capture requires access to your device's camera to allow you to capture photos directly within the app. This access is essential for providing you with a seamless and intuitive photography experience. We do not store or share your media without your explicit consent.";
-				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "Capture requires access to your photo library to save the photos to your device.";
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "Allow Capture to save photos to your photo library. ";
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
@@ -367,7 +367,7 @@
 				INFOPLIST_KEY_CFBundleDisplayName = Capture;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.photography";
 				INFOPLIST_KEY_NSCameraUsageDescription = "Capture requires access to your device's camera to allow you to capture photos directly within the app. This access is essential for providing you with a seamless and intuitive photography experience. We do not store or share your media without your explicit consent.";
-				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "Capture requires access to your photo library to save the photos to your device.";
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "Allow Capture to save photos to your photo library. ";
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
