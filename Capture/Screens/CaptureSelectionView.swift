@@ -17,29 +17,26 @@ struct CaptureSelectionView: View {
     
     var body: some View {
         ZStack {
-            if capturedImage != nil {
-                Image(uiImage: capturedImage!)
-                    .resizable()
-                    .scaledToFill()
-                    .ignoresSafeArea()
-                    .onAppear {
-                        selectedImage = nil
-                    }
-            } else if selectedImage != nil  {
-                Image(uiImage: selectedImage!)
-                    .resizable()
-                    .scaledToFill()
-                    .ignoresSafeArea()
-                    .onAppear {
-                        capturedImage = nil
-                    }
-            } else {
-                Color(uiColor: .systemBackground)
-            }
-            
-              
             VStack {
+                if capturedImage != nil {
+                    HStack {
+                        Spacer()
+                        Button {
+                            let imageSaver = ImageSaver()
+                            imageSaver.writeToPhotoAlbum(image: capturedImage!)
+                        } label: {
+                            Text("Save")
+                                .padding(10)
+                                .background(Color.black)
+                                .foregroundColor(.white)
+                                .clipShape(RoundedRectangle(cornerRadius: 8))
+                        }
+                        .padding(.horizontal)
+                    }
+                }
+                
                 Spacer()
+                
                 HStack {
                     Button {
                         isCustomCameraViewPresented.toggle()
@@ -81,6 +78,29 @@ struct CaptureSelectionView: View {
                     }
                 }
             }
+        }
+        .background {
+            if capturedImage != nil {
+                Image(uiImage: capturedImage!)
+                    .resizable()
+                    .scaledToFill()
+                    .ignoresSafeArea()
+                    .onAppear {
+                        selectedImage = nil
+                    }
+            } else {
+                Color(uiColor: .systemBackground)
+            }
+            
+            if selectedImage != nil  {
+                Image(uiImage: selectedImage!)
+                    .resizable()
+                    .scaledToFill()
+                    .ignoresSafeArea()
+                    .onAppear {
+                        capturedImage = nil
+                    }
+            } 
         }
     }
 }
