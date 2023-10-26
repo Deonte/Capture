@@ -14,6 +14,7 @@
 		FD9AAE572AE7D9F000A8A4F2 /* Camera.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD9AAE562AE7D9F000A8A4F2 /* Camera.swift */; };
 		FD9AAE592AE7DFFD00A8A4F2 /* PreviewCameraView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD9AAE582AE7DFFD00A8A4F2 /* PreviewCameraView.swift */; };
 		FD9AAE5B2AE7E29000A8A4F2 /* CustomCameraView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD9AAE5A2AE7E29000A8A4F2 /* CustomCameraView.swift */; };
+		FD9AAE5D2AEA7AAC00A8A4F2 /* ImageSaver.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD9AAE5C2AEA7AAC00A8A4F2 /* ImageSaver.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,6 +28,7 @@
 		FD9AAE562AE7D9F000A8A4F2 /* Camera.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Camera.swift; sourceTree = "<group>"; };
 		FD9AAE582AE7DFFD00A8A4F2 /* PreviewCameraView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewCameraView.swift; sourceTree = "<group>"; };
 		FD9AAE5A2AE7E29000A8A4F2 /* CustomCameraView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCameraView.swift; sourceTree = "<group>"; };
+		FD9AAE5C2AEA7AAC00A8A4F2 /* ImageSaver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageSaver.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -100,6 +102,7 @@
 		FD9AAE4E2AE6762700A8A4F2 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				FD9AAE5C2AEA7AAC00A8A4F2 /* ImageSaver.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -183,6 +186,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FD9AAE572AE7D9F000A8A4F2 /* Camera.swift in Sources */,
+				FD9AAE5D2AEA7AAC00A8A4F2 /* ImageSaver.swift in Sources */,
 				FD9AAE402AE675A500A8A4F2 /* CaptureSelectionView.swift in Sources */,
 				FD9AAE592AE7DFFD00A8A4F2 /* PreviewCameraView.swift in Sources */,
 				FD9AAE3E2AE675A500A8A4F2 /* CaptureApp.swift in Sources */,
