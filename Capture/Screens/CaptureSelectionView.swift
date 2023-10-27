@@ -38,6 +38,7 @@ struct CaptureSelectionView: View {
                 Spacer()
                 
                 HStack {
+                    Spacer()
                     Button {
                         isCustomCameraViewPresented.toggle()
                     } label: {
@@ -55,6 +56,8 @@ struct CaptureSelectionView: View {
                             .foregroundColor(.white)
                             .clipShape(Circle())
                     }
+                    Spacer()
+
                 }
                 .padding(.bottom)
                 .sheet(isPresented: $isCustomCameraViewPresented, content: {
@@ -89,7 +92,8 @@ struct CaptureSelectionView: View {
                         selectedImage = nil
                     }
             } else {
-                Color(uiColor: .systemBackground)
+                Color(uiColor: .tertiarySystemBackground)
+                    .ignoresSafeArea()
             }
             
             if selectedImage != nil  {

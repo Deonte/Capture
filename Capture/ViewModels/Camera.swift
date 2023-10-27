@@ -54,6 +54,12 @@ class Camera {
                     session.addOutput(output)
                 }
                 
+                if device.isFocusModeSupported(.continuousAutoFocus) {
+                    try device.lockForConfiguration()
+                    device.focusMode = .continuousAutoFocus
+                    device.unlockForConfiguration()
+                }
+                
                 previewLayer.videoGravity = .resizeAspectFill
                 previewLayer.session = session
                 DispatchQueue.global(qos: .background).async {
