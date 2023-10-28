@@ -13,6 +13,9 @@ class CameraViewController: UIViewController {
     override func viewDidLoad() {
         view.backgroundColor = .black
     }
+    override func viewWillLayoutSubviews() {
+        view.backgroundColor = .black
+    }
 }
 
 struct PreviewCameraView: UIViewControllerRepresentable {
@@ -24,6 +27,7 @@ struct PreviewCameraView: UIViewControllerRepresentable {
     func makeUIViewController(context: Context) -> UIViewController {
         camera.start(delegate: context.coordinator) { error in
             if let error = error {
+                print("Something Happen")
                 didFinishProcessingPhoto(.failure(error))
                 return
             }
@@ -61,6 +65,7 @@ struct PreviewCameraView: UIViewControllerRepresentable {
         
         func photoOutput(_ output: AVCapturePhotoOutput, didFinishProcessingPhoto photo: AVCapturePhoto, error: Error?) {
             if let error = error {
+                print("something went wrong....")
                 didFinishProcessingPhoto(.failure(error))
                 return
             }
