@@ -15,14 +15,30 @@ enum CameraType {
 class Camera {
     var session: AVCaptureSession?
     var delegate: AVCapturePhotoCaptureDelegate?
-    var cameraCheck: CameraType = .Back
     
+    var cameraPosition: CameraType = .Back
     var output = AVCapturePhotoOutput()
     let previewLayer = AVCaptureVideoPreviewLayer()
     
-    func start(delegate: AVCapturePhotoCaptureDelegate, completion: @escaping (Error?) -> ()) {
+    public func start(delegate: AVCapturePhotoCaptureDelegate, completion: @escaping (Error?) -> ()) {
         self.delegate = delegate
         checkPermissions(completion: completion)
+    }
+    
+    public func switchCamera() {
+        if cameraPosition == .Back {
+            cameraPosition = .Front
+            session?.stopRunning()
+            addVideoInput()
+        } else {
+            cameraPosition = .Back
+            session?.stopRunning()
+            addVideoInput()
+        }
+    }
+    
+    public func capturePhoto(with settings: AVCapturePhotoSettings = AVCapturePhotoSettings()) {
+        output.capturePhoto(with: settings, delegate: delegate!)
     }
     
     private func checkPermissions(completion: @escaping (Error?) -> ()) {
@@ -47,81 +63,55 @@ class Camera {
         }
     }
     
-    private func addVideoInput(from session: AVCaptureSession) {
-        if cameraCheck == .Front {
-            output = AVCapturePhotoOutput()
-            if let device: AVCaptureDevice = self.deviceWithMediaTypeWithPosition(mediaType: .video, position: .front) {
-                do {
-                    let input = try AVCaptureDeviceInput(device: device)
-                    if session.canAddInput(input) {
-                        session.addInput(input)
-                    }
-                    if session.canAddOutput(output) {
-                        session.addOutput(output)
-                    }
-                    
-                    if device.isFocusModeSupported(.continuousAutoFocus) {
-                        try device.lockForConfiguration()
-                        device.focusMode = .continuousAutoFocus
-                        device.unlockForConfiguration()
-                    }
-                    previewLayer.videoGravity = .resizeAspectFill
-                    previewLayer.session = session
-                    
-                    DispatchQueue.global(qos: .background).async {
-                        session.startRunning()
-                    }
-                    session.sessionPreset = .photo
-
-                    self.session = session
-                } catch {
-                    print(error)
+    private func configure(camera: AVCaptureDevice.Position, from session: AVCaptureSession) {
+        output = AVCapturePhotoOutput()
+        if let device: AVCaptureDevice = self.deviceWithMediaTypeWithPosition(mediaType: .video, position: camera) {
+            do {
+                let input = try AVCaptureDeviceInput(device: device)
+                if session.canAddInput(input) {
+                    session.addInput(input)
                 }
-            }
-        } else {
-            if let device: AVCaptureDevice = self.deviceWithMediaTypeWithPosition(mediaType: .video, position: .back) {
-                output = AVCapturePhotoOutput()
-                do {
-                    let input = try AVCaptureDeviceInput(device: device)
-                    if session.canAddInput(input) {
-                        session.addInput(input)
-                    }
-                    if session.canAddOutput(output) {
-                        session.addOutput(output)
-                    }
-                    
-                    if device.isFocusModeSupported(.continuousAutoFocus) {
-                        try device.lockForConfiguration()
-                        device.focusMode = .continuousAutoFocus
-                        device.unlockForConfiguration()
-                    }
-                    previewLayer.videoGravity = .resizeAspectFill
-                    previewLayer.session = session
-                    session.sessionPreset = .photo
-
-                    DispatchQueue.global(qos: .background).async {
-                        session.startRunning()
-                    }
-                    
-                    self.session = session
-                } catch {
-                    print(error)
+                if session.canAddOutput(output) {
+                    session.addOutput(output)
                 }
                 
+                if device.isFocusModeSupported(.continuousAutoFocus) {
+                    try device.lockForConfiguration()
+                    device.focusMode = .continuousAutoFocus
+                    device.unlockForConfiguration()
+                }
+                previewLayer.videoGravity = .resizeAspectFill
+                previewLayer.session = session
+                session.sessionPreset = .photo
+
+                DispatchQueue.global(qos: .background).async {
+                    session.startRunning()
+                }
+
+                self.session = session
+            } catch {
+                print(error)
             }
         }
     }
     
-    private func setupCamera(completion: @escaping(Error?) -> ()) {
-        let session = AVCaptureSession()
-        addVideoInput(from: session)
+    private func addVideoInput(from session: AVCaptureSession) {
+        if cameraPosition == .Front {
+            configure(camera: .front, from: session)
+        } else {
+            configure(camera: .back, from: session)
+        }
     }
     
-    func deviceWithMediaTypeWithPosition(mediaType: AVMediaType, position: AVCaptureDevice.Position) -> AVCaptureDevice? {
+    private func setupCamera(completion: @escaping(Error?) -> ()) {
+        addVideoInput()
+    }
+    
+    private func deviceWithMediaTypeWithPosition(mediaType: AVMediaType, position: AVCaptureDevice.Position) -> AVCaptureDevice? {
         let discoverySession = AVCaptureDevice.DiscoverySession(deviceTypes: [.builtInWideAngleCamera], mediaType: mediaType, position: .unspecified)
         if discoverySession.devices.count != 0 {
             if var captureDevice: AVCaptureDevice = discoverySession.devices.first {
-
+                
                 for device in discoverySession.devices {
                     let d = device
                     if d.position == position {
@@ -137,12 +127,9 @@ class Camera {
         return nil
     }
     
-    func flipCamera() {
+    private func addVideoInput() {
         let session = AVCaptureSession()
         addVideoInput(from: session)
     }
     
-    func capturePhoto(with settings: AVCapturePhotoSettings = AVCapturePhotoSettings()) {
-        output.capturePhoto(with: settings, delegate: delegate!)
-    }
 }
