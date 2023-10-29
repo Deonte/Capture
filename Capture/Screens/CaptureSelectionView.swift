@@ -11,7 +11,7 @@ import PhotosUI
 
 struct CaptureSelectionView: View {
     @State private var capturedImage: UIImage? = nil
-    @State private var isCustomCameraViewPresented = false
+    @State private var isCameraViewPresented = false
     @State private var selectedImage: UIImage? = nil
     @State private var selectedImageItem: PhotosPickerItem? = nil
     
@@ -40,7 +40,7 @@ struct CaptureSelectionView: View {
                 HStack {
                     Spacer()
                     Button {
-                        isCustomCameraViewPresented.toggle()
+                        isCameraViewPresented.toggle()
                     } label: {
                         Image(systemName: "camera.fill")
                             .padding()
@@ -60,12 +60,12 @@ struct CaptureSelectionView: View {
 
                 }
                 .padding(.bottom)
-                .sheet(isPresented: $isCustomCameraViewPresented, content: {
-                    CustomCameraView(capturedImage: $capturedImage)
+                .sheet(isPresented: $isCameraViewPresented, content: {
+                    CameraView(capturedImage: $capturedImage)
                 })
                 .onChange(of: capturedImage) { oldValue, newValue in
                     if newValue != nil {
-                        isCustomCameraViewPresented = false
+                        isCameraViewPresented = false
                     }
                 }
                 .onChange(of: selectedImageItem) {

@@ -12,9 +12,15 @@ enum CameraType {
     case Back
 }
 
+enum FlashMode {
+    case on
+    case off
+}
+
 class Camera {
     var session: AVCaptureSession?
     var delegate: AVCapturePhotoCaptureDelegate?
+    var currentFlashMode: FlashMode = .off
     
     var cameraPosition: CameraType = .Back
     var output = AVCapturePhotoOutput()
@@ -38,7 +44,14 @@ class Camera {
     }
     
     public func capturePhoto(with settings: AVCapturePhotoSettings = AVCapturePhotoSettings()) {
-        output.capturePhoto(with: settings, delegate: delegate!)
+        switch currentFlashMode {
+        case .on:
+            let newSettings = AVCapturePhotoSettings()
+            newSettings.flashMode = .on
+            output.capturePhoto(with: newSettings, delegate: delegate!)
+        case .off:
+            output.capturePhoto(with: settings, delegate: delegate!)
+        }
     }
     
     private func checkPermissions(completion: @escaping (Error?) -> ()) {
@@ -81,6 +94,7 @@ class Camera {
                     device.unlockForConfiguration()
                 }
                 previewLayer.videoGravity = .resizeAspectFill
+                previewLayer.connection?.videoRotationAngle = 90 // Portrait
                 previewLayer.session = session
                 session.sessionPreset = .photo
 
@@ -108,11 +122,20 @@ class Camera {
     }
     
     private func deviceWithMediaTypeWithPosition(mediaType: AVMediaType, position: AVCaptureDevice.Position) -> AVCaptureDevice? {
-        let discoverySession = AVCaptureDevice.DiscoverySession(deviceTypes: [.builtInWideAngleCamera], mediaType: mediaType, position: .unspecified)
-        if discoverySession.devices.count != 0 {
-            if var captureDevice: AVCaptureDevice = discoverySession.devices.first {
+        let backVideoDeviceDiscoverySession = AVCaptureDevice.DiscoverySession(deviceTypes: [.builtInWideAngleCamera, .builtInDualCamera], mediaType: mediaType, position: .back)
+        let frontVideoDeviceDiscoverySession = AVCaptureDevice.DiscoverySession(deviceTypes: [.builtInTrueDepthCamera, .builtInWideAngleCamera], mediaType: mediaType, position: .front)
+        var discoverySession: AVCaptureDevice.DiscoverySession?
+        
+        if position == .unspecified || position == .back {
+            discoverySession = backVideoDeviceDiscoverySession
+        } else {
+            discoverySession = frontVideoDeviceDiscoverySession
+        }
+        
+        if discoverySession!.devices.count != 0 {
+            if var captureDevice: AVCaptureDevice = discoverySession!.devices.first {
                 
-                for device in discoverySession.devices {
+                for device in discoverySession!.devices {
                     let d = device
                     if d.position == position {
                         captureDevice = d

@@ -13,9 +13,6 @@ class CameraViewController: UIViewController {
     override func viewDidLoad() {
         view.backgroundColor = .black
     }
-    override func viewWillLayoutSubviews() {
-        view.backgroundColor = .black
-    }
 }
 
 struct PreviewCameraView: UIViewControllerRepresentable {
@@ -74,25 +71,29 @@ struct PreviewCameraView: UIViewControllerRepresentable {
         }
         
         @objc func handleTap(_ gesture: UITapGestureRecognizer) {
+            guard parent.camera.cameraPosition == .Back else { return }
             let previewLayer = parent.camera.previewLayer
             guard let device = AVCaptureDevice.default(for: .video) else { return }
-            
             let touchPoint: CGPoint = gesture.location(in: viewController.view)
             let convertedPoint: CGPoint = previewLayer.captureDevicePointConverted(fromLayerPoint: touchPoint)
+            
             if device.isFocusPointOfInterestSupported && device.isFocusModeSupported(AVCaptureDevice.FocusMode.autoFocus) {
                 do {
                     try device.lockForConfiguration()
                     device.focusPointOfInterest = convertedPoint
-                    device.focusMode = AVCaptureDevice.FocusMode.autoFocus
+                    device.focusMode = .autoFocus
+                    device.isSubjectAreaChangeMonitoringEnabled = true
                     device.unlockForConfiguration()
+                    print("Focus point: \(convertedPoint)")
                 } catch {
                     print("unable to focus")
                 }
             }
+            
             let location = gesture.location(in: viewController.view)
-            let x = location.x - 125
-            let y = location.y - 125
-            let lineView = DrawSquare(frame: CGRect(x: x, y: y, width: 250, height: 250))
+            let x = location.x - 75
+            let y = location.y - 75
+            let lineView = DrawSquare(frame: CGRect(x: x, y: y, width: 150, height: 150))
             lineView.backgroundColor = UIColor.clear
             lineView.alpha = 0.9
             viewController.view.addSubview(lineView)
