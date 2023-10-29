@@ -66,8 +66,8 @@
 				FD9AAE552AE690BA00A8A4F2 /* Info.plist */,
 				FD9AAE4C2AE675D500A8A4F2 /* App */,
 				FD9AAE4E2AE6762700A8A4F2 /* Utilities */,
+				FD9AAE4F2AE678B400A8A4F2 /* Managers */,
 				FD9AAE4D2AE6761B00A8A4F2 /* Screens */,
-				FD9AAE4F2AE678B400A8A4F2 /* ViewModels */,
 				FD9AAE432AE675A600A8A4F2 /* Capture.entitlements */,
 				FD9AAE442AE675A600A8A4F2 /* Preview Content */,
 			);
@@ -110,12 +110,12 @@
 			path = Utilities;
 			sourceTree = "<group>";
 		};
-		FD9AAE4F2AE678B400A8A4F2 /* ViewModels */ = {
+		FD9AAE4F2AE678B400A8A4F2 /* Managers */ = {
 			isa = PBXGroup;
 			children = (
 				FD9AAE562AE7D9F000A8A4F2 /* Camera.swift */,
 			);
-			path = ViewModels;
+			path = Managers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
