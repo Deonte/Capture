@@ -43,7 +43,7 @@ struct CameraView: View {
                     Spacer()
                 }
                 .padding()
-                .background(.black.opacity(0.7))
+                .background(.black)
                 
                 Spacer()
                 
@@ -55,7 +55,7 @@ struct CameraView: View {
                     cameraSwitchButton
                 }
                 .padding()
-                .background(.black.opacity(0.7))
+                .background(.black)
             }
 
         }
